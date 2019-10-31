@@ -9,8 +9,8 @@ export function loadSmurfs() {
     dispatch({type: SMURFS_ARE_LOADING})
 
     axios.get('http://localhost:3333/smurfs')
-    .then(response => { console.log(response.data)
-      //dispatch({type: SMURFS_HAVE_LOADED payload: response})
+    .then(response => {
+      dispatch({type: SMURFS_HAVE_LOADED, payload: response.data})
     })
     .catch(error => {
       dispatch({type: SMURF_LOADING_ERROR, payload: error })
