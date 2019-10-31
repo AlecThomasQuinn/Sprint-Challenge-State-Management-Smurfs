@@ -10,7 +10,7 @@ const SmurfVillage = props => {
     return (
     
         <div>
-        {props.isDogLoading ? (
+        {props.isLoading ? (
         <div>Nothing to see here, move along</div>
       ) : (
         // console.log('from props:', props.smurfs)
