@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import { connect } from "react-redux";
-import axios from 'axios';
-import { addSmurf } from '../Actions/addSmurf';
+import { addSmurf, postSmurf } from '../Actions/addSmurf';
 import { loadSmurfs } from '../Actions/smurfVillage'
 
 const AddSmurfsForm = props => {
@@ -13,7 +12,8 @@ const AddSmurfsForm = props => {
         e.preventDefault();
         console.log(smurfName, smurfAge, smurfHeight);
         props.addSmurf(smurfName, smurfAge, smurfHeight);
-        console.log('from AddSmurfForm', props.state);
+        console.log('from AddSmurfForm', props.addSmurf);
+        props.postSmurf(props.addSmurf);
     }
 
     return (
@@ -41,20 +41,22 @@ const AddSmurfsForm = props => {
       </form>
     </>
     )
-}
+};
 
 function mapStateToProps(state) {
+    console.log('state from form', state)
     return {
         newSmurf: state.addSmurf
     };
-  }
+};
 
-  const matchDispatchToProps = {
-    addSmurf
-  };
+const matchDispatchToProps = {
+    addSmurf,
+    postSmurf
+};
 
-  export default connect(
+export default connect(
     mapStateToProps,
     matchDispatchToProps
-  )(AddSmurfsForm);
+)(AddSmurfsForm);
   

@@ -1,4 +1,6 @@
 import { BIRTH_SMURF } from '../Actions/addSmurf';
+import { POST_SMURF } from '../Actions/addSmurf';
+
 
 export const initialState = {
     newSmurf: [],
@@ -14,8 +16,11 @@ export function reducer(state = initialState, action) {
                        name: action.payload.name,
                        age: action.payload.age,
                        height: action.payload.height 
-                    }]
+                    }
+                ]
             }
+        case POST_SMURF:
+            return state
         default:
             return state
     }
