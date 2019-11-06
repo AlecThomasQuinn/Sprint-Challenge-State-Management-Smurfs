@@ -15,7 +15,7 @@ export function reducer(state = initialState, action) {
                     {
                        name: action.payload.name,
                        age: action.payload.age,
-                       height: action.payload.height 
+                       height: action.payload.height, 
                     }
                 ]
             }
